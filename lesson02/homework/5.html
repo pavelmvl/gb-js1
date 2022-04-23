@@ -32,7 +32,84 @@ Infinity делать не нужно, однако, в случае если б
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  console.log(mathOperation(5, 3, "+")); // 8
+  console.log(mathOperation(5, 3, ":)")); // NaN
+
+  /**
+   * Функция использует выбранный бинарный оператор и возвращает значение
+   * выбранной операции над двумя аргументами.
+   * @param {number} arg1 первый аргумент.
+   * @param {number} arg2 второй аргкмент.
+   * @param {string} operator применяемый оператор, валидные значения:
+   * '+', '-', '*', '/'. Если оператор невалиден, то функция вернет NaN.
+   * @returns {number}
+   */
+  function mathOperation(arg1, arg2, operation) {
+    let fun = null;
+    switch(operation) {
+      case '+':
+        fun = sum;
+        break;
+      case '-':
+        fun = sub;
+        break;
+      case '*':
+        fun = mul;
+        break;
+      case '/':
+        fun = div;
+        break;
+      default:
+        return NaN;
+    }
+    return fun(arg1, arg2);
+  }
+  /**
+   * Функция возвращает сумму двух переменных.
+   * @param {number} a слагаемое 1.
+   * @param {number} b слагаемое 2.
+   * @returns {number} сумма.
+   */
+  function sum(a, b) {
+    return a + b;
+  }
+
+  /**
+   * Функция возвращает разность двух переменных.
+   * Уменьшаемым является наибольший из переданных аргументов.
+   * @param {number} a первое число
+   * @param {number} b второе число.
+   * @returns {number} разность наибольшего аргумента и наименьшего.
+   */
+  function sub(a, b) {
+    if (a === b) {
+      return 0;
+    }
+    if (a < b) {
+      return b - a;
+    }
+    return a - b;
+  }
+
+  /**
+   * Функция возвращает произведение двух переменных.
+   * @param {number} a множимое.
+   * @param {number} b множитель.
+   * @return {number} произведение.
+   */
+  function mul(a, b) {
+    return a * b;
+  }
+
+  /**
+   * Функция возвращает частное двух переменных.
+   * @param {number} a делимое.
+   * @param {number} b делитель.
+   * @returns {number} частное.
+   */
+  function div(a, b) {
+    return a / b;
+  }
 </script>
 </body>
 </html>

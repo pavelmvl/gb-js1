@@ -31,7 +31,73 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  // Точность выводимого результата.
+  const presision = 5;
+
+  let a, b;
+  // Сумма
+  a = 2, b = 3;
+  console.log(`sum(${a}, ${b}): ${sum(a, b).toFixed(presision)}`);
+  // Разность
+  a = 3, b = 3;
+  console.log(`sub(${a}, ${b}): ${sub(a, b).toFixed(presision)}`);
+  a = 4, b = 3;
+  console.log(`sub(${a}, ${b}): ${sub(a, b).toFixed(presision)}`);
+  a = -4, b = 3;
+  console.log(`sub(${a}, ${b}): ${sub(a, b).toFixed(presision)}`);
+  // Умножение
+  a = 5, b = 6;
+  console.log(`mul(${a}, ${b}): ${mul(a, b).toFixed(presision)}`);
+  // Деление
+  a = 355, b = 113;
+  console.log(`div(${a}, ${b}): ${div(a, b).toFixed(presision)}`);
+
+  /**
+   * Функция возвращает сумму двух переменных.
+   * @param {number} a слагаемое 1.
+   * @param {number} b слагаемое 2.
+   * @returns {number} сумма.
+   */
+  function sum(a, b) {
+    return a + b;
+  }
+
+  /**
+   * Функция возвращает разность двух переменных.
+   * Уменьшаемым является наибольший из переданных аргументов.
+   * @param {number} a первое число
+   * @param {number} b второе число.
+   * @returns {number} разность наибольшего аргумента и наименьшего.
+   */
+  function sub(a, b) {
+    if (a === b) {
+      return 0;
+    }
+    if (a < b) {
+      return b - a;
+    }
+    return a - b;
+  }
+
+  /**
+   * Функция возвращает произведение двух переменных.
+   * @param {number} a множимое.
+   * @param {number} b множитель.
+   * @return {number} произведение.
+   */ 
+  function mul(a, b) {
+    return a * b;
+  }
+
+  /**
+   * Функция возвращает частное двух переменных.
+   * @param {number} a делимое.
+   * @param {number} b делитель.
+   * @returns {number} частное.
+   */
+  function div(a, b) {
+    return a / b;
+  }
 </script>
 </body>
 </html>

@@ -21,7 +21,15 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  const b = Number(prompt('Enter number "b":'));
+
+  if (a > 0 && b > 0) {
+    console.log(`1: ${(a - b).toFixed(2)}`);
+  } else if (a < 0 && b < 0) {
+    console.log(`2: ${(a * b).toFixed(2)}`);
+  } else if ((a > 0 && b < 0) || (a < 0 && b > 0)) {
+    console.log(`3: ${(a + b).toFixed(2)}`);
+  }
 </script>
 </body>
 </html>
