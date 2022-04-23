@@ -28,7 +28,17 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  const num = Number.parseInt(
+    prompt('Enter a number (greater or equal 100):')
+  );
+
+  const ones = num % 10;
+  const tens = Math.trunc((num % 100) / 10);
+  const hundreds = Math.trunc((num % 1000) / 100);
+
+  console.log(
+    `"В числе ${num} количество сотен: ${hundreds}, десятков: ${tens}, единиц: ${ones}"`
+  );
 </script>
 </body>
 </html>
