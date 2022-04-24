@@ -40,29 +40,23 @@ Infinity делать не нужно, однако, в случае если б
    * выбранной операции над двумя аргументами.
    * @param {number} arg1 первый аргумент.
    * @param {number} arg2 второй аргкмент.
-   * @param {string} operator применяемый оператор, валидные значения:
+   * @param {string} operation применяемый оператор, валидные значения:
    * '+', '-', '*', '/'. Если оператор невалиден, то функция вернет NaN.
    * @returns {number}
    */
   function mathOperation(arg1, arg2, operation) {
-    let fun = null;
     switch(operation) {
       case '+':
-        fun = sum;
-        break;
+        return sum(a, b);
       case '-':
-        fun = sub;
-        break;
+        return sub(a, b);
       case '*':
-        fun = mul;
-        break;
+        return mul(a, b);
       case '/':
-        fun = div;
-        break;
+        return div(a, b);
       default:
         return NaN;
     }
-    return fun(arg1, arg2);
   }
   /**
    * Функция возвращает сумму двух переменных.
@@ -82,9 +76,6 @@ Infinity делать не нужно, однако, в случае если б
    * @returns {number} разность наибольшего аргумента и наименьшего.
    */
   function sub(a, b) {
-    if (a === b) {
-      return 0;
-    }
     if (a < b) {
       return b - a;
     }
