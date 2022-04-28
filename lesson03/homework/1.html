@@ -20,15 +20,13 @@
   "use strict";
 
   for(let i = 0; i < 11; i++) {
-    let evenOrOdd;
     if (i === 0) {
-      evenOrOdd = 'это ноль';
+      console.log(`${i} - ${evenOrOdd}`);
+    } else if (i % 2 === 0){
+      console.log(`${i} - ${evenOrOdd}`);
     } else {
-      evenOrOdd = (i % 2 === 0)
-        ? 'четное число'
-        : 'нечетное число';
+      console.log(`${i} - ${evenOrOdd}`);
     }
-    console.log(`${i} - ${evenOrOdd}`);
   }
 </script>
 </body>
