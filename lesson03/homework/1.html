@@ -19,7 +19,17 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  for(let i = 0; i < 11; i++) {
+    let evenOrOdd;
+    if (i === 0) {
+      evenOrOdd = 'это ноль';
+    } else {
+      evenOrOdd = (i % 2 === 0)
+        ? 'четное число'
+        : 'нечетное число';
+    }
+    console.log(`${i} - ${evenOrOdd}`);
+  }
 </script>
 </body>
 </html>
