@@ -44,7 +44,14 @@
     },
   ];
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  // 1)
+  console.log(products.filter(product => product.photos?.length > 0));
+  // 2)
+  console.log(
+    products.sort(
+      (product1, product2) => product1.price - product2.price
+    )
+  );
 </script>
 </body>
 </html>
