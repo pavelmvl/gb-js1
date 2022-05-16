@@ -31,7 +31,32 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  /**
+   * This function is analyzing input argument if type is number and
+   * if range in [0, 1000]. If not it print error and return empty object.
+   * @param {number} num should be Number in range [0, 1000].
+   * @return {{units, dozen, hundreds}|object} return object with 3 digits
+   * or empty object.
+   */
+  function getDigitsOfNumber(num) {
+    if (typeof num !== 'number') {
+      console.trace(new Error(`${num} is not Number (${typeof num})`));
+      return {};
+    }
+    if (num < 0 || num >= 1000) {
+      console.trace(new Error(`Out of range: ${num}. It should be [0, 1000].`));
+      return {};
+    }
+    return {
+      units: Math.trunc(num % 10),
+      dozen: Math.trunc((num / 10) % 10),
+      hundreds: Math.trunc((num / 100) % 10),
+    };
+  }
+
+  console.dir(getDigitsOfNumber('1'))
+  console.dir(getDigitsOfNumber(-1))
+  console.dir(getDigitsOfNumber(12))
 </script>
 </body>
 </html>
