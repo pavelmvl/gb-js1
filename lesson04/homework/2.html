@@ -50,7 +50,93 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  // ES6 code
+  class PostES6 {
+    constructor(author, text) {
+      this.author = author;
+      this.text = text;
+      this.date = new Date();
+    }
+    edit(newText) {
+      this.text = newText;
+      this.date = new Date();
+    }
+    log() {
+      console.log(
+        `${this.author} posted '${this.text}' on ${this.date.toISOString()}.`
+      );
+    }
+  }
+
+  const postES6 = new PostES6('Pavel', 'some text');
+  postES6.log();
+  postES6.edit('some new text');
+  postES6.log();
+
+  class AttachedPostES6 extends PostES6 {
+    constructor(author, text) {
+      super(author, text);
+      this.highlighted = false;
+    }
+    makeTextHighlighted() {
+      this.highlighted = true;
+      this.date = new Date();
+    }
+    log() {
+      console.log(
+        `${this.author} posted '${this.text}' on ${this.date.toISOString()}.`,
+        `highlighted: ${this.highlighted}`
+      );
+    }
+  }
+
+  const attachedPostES6 = new AttachedPostES6('Pavel', 'some text');
+  attachedPostES6.log();
+  attachedPostES6.makeTextHighlighted();
+  attachedPostES6.log();
+
+  // ES5 code
+  function PostES5(author, text) {
+    this.author = author;
+    this.text = text;
+    this.date = new Date();
+  }
+  PostES5.prototype.edit = function(newText) {
+    this.text = newText;
+    this.date = new Date();
+  };
+  PostES5.prototype.log = function() {
+      console.log(
+        `${this.author} posted '${this.text}' on ${this.date.toISOString()}.`
+      );
+  };
+
+  const postES5 = new PostES5('Pavel', 'some text via ES5');
+  postES5.log();
+  postES5.edit('some new text via ES5');
+  postES5.log();
+
+  function AttachedPostES5(author, text) {
+    PostES5.call(author, text);
+    this.highlighted = false;
+  }
+  AttachedPostES5.prototype = Object.create(PostES5.prototype);
+  AttachedPostES5.prototype.constructor = AttachedPostES5;
+  AttachedPostES5.prototype.makeTextHighlighted = function () {
+    this.highlighted = true;
+    this.date = new Date();
+  };
+  AttachedPostES5.prototype.log = function () {
+      console.log(
+        `${this.author} posted '${this.text}' on ${this.date.toISOString()}.`,
+        `highlighted: ${this.highlighted}`
+      );
+  };
+  const attachedPostES5 = new AttachedPostES6('Pavel', 'some text via ES5');
+  attachedPostES5.log();
+  attachedPostES5.makeTextHighlighted();
+  attachedPostES5.log();
+
 </script>
 </body>
 </html>
