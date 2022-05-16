@@ -20,7 +20,41 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  // ES5 style code
+  function ProductES5(name, price) {
+    this.name = name;
+    this.price = Number(price);
+  }
+  ProductES5.prototype.make25Discount = function() {
+    this.price *= 0.75;
+  };
+  ProductES5.prototype.log = function() {
+    console.log(`Price of ${this.name} is ${this.price.toFixed(2)}.`);
+  };
+
+  const productES5 = new ProductES5('pear', 9);
+  productES5.log();
+  productES5.make25Discount();
+  productES5.log();
+
+  // ES6 style code
+  class ProductES6 {
+    constructor(name, price) {
+      this.name = name;
+      this.price = Number(price);
+    }
+    make25Discount() {
+      this.price *= 0.75;
+    }
+    log() {
+      console.log(`Price of ${this.name} is ${this.price.toFixed(2)}.`);
+    }
+  }
+
+  const productES6 = new ProductES6('apple', '5');
+  productES6.log();
+  productES6.make25Discount();
+  productES6.log();
 </script>
 </body>
 </html>
