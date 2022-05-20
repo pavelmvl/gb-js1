@@ -82,7 +82,7 @@
   Вывод каждого атрибута и значений должен выглядеть следующим образом (пример):
   Атрибут "class" содержит значение "btn btn-secondary dropdown-toggle"
    */
-  for(const attr of document.querySelector(".btn,.dropdown-toggle").attributes) {
+  for(const attr of document.querySelector(".btn.dropdown-toggle").attributes) {
     console.log(`Атрибут "${attr.name}" содержит значение "${attr.value}"`);
   }
 
