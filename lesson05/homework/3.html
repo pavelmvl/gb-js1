@@ -79,16 +79,13 @@
   которому был совершен клик.
   Необходимо использовать делегирование.
   */
-  document.body.addEventListener(
-    'click',
-    event => {
-      const isSuperElementClass = event.target.classList.contains("super_element");
-      const existStr = isSuperElementClass ? "присуствует" : "отсуствует";
-      console.log(
-        `Класс "super_element" ${existStr} в элементе "${event.target.tagName.toLowerCase()}".`
-      );
-    }
-  );
+  document.body.addEventListener( 'click', event => {
+    const isSuperElementClass = event.target.classList.contains("super_element");
+    const existStr = isSuperElementClass ? "присуствует" : "отсуствует";
+    console.log(
+      `Класс "super_element" ${existStr} в элементе "${event.target.tagName.toLowerCase()}".`
+    );
+  });
 
   /*
   4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение:
@@ -106,18 +103,21 @@
   Если клик был не по кнопке, то ничего выводить не нужно.
   Необходимо использовать делегирование.
    */
-  document.querySelector("ul").addEventListener(
-    'click',
-    event => {
-      switch (event.target.tagName) {
-        case 'BUTTON':
-          console.log(event.target.textContent);
-          break;
-        default:
-          return;
-      }
+  document.querySelector("ul").addEventListener('click', event => {
+    /*
+    switch (event.target.tagName) {
+      case 'BUTTON':
+        console.log(event.target.textContent);
+        break;
+      default:
+        return;
     }
-  );
+    */
+    if (event.target.tagName !== 'BUTTON') {
+      return;
+    }
+    console.log(event.target.textContent);
+  });
 
   /*
   6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и только
@@ -135,7 +135,7 @@
   7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li.
    */
   document.querySelectorAll("li:nth-child(even)").forEach(
-    el => el.style.backgroundColor="magenta"
+    el => el.style.backgroundColor = "magenta"
   );
 
 </script>
