@@ -56,25 +56,29 @@
     <a href="#">link</a>
    */
   document.querySelector("div.dropdown").insertAdjacentHTML(
-    'afterEnd',
+    'afterend',
     '<a href="#">link</a>'
   );
 
   /*
   5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
    */
-  document.querySelector("#dropdownMenuButton").id="superDropdown";
+  document.querySelector("#dropdownMenuButton").id = "superDropdown";
 
   /*
   6. Добавьте атрибут data-dd со значением 3 элементу у которого существует
   атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
    */
-  document.querySelector('[aria-labelledby="dropdownMenuButton"]').dataset.dd="3";
+  document
+    .querySelector('[aria-labelledby="dropdownMenuButton"]')
+    .dataset
+    .dd = "3";
 
   /*
   7. Удалите атрибут type у элемента с классом "dropdown-toggle".
    */
-  document.querySelector(".dropdown-toggle").attributes.removeNamedItem("type");
+  // document.querySelector(".dropdown-toggle").attributes.removeNamedItem("type");
+  document.querySelector(".dropdown-toggle").removeAttribute("type");
 
   /*
   8. Выведите в консоль все имеющиеся атрибуты и их значения тега у которого
@@ -82,7 +86,8 @@
   Вывод каждого атрибута и значений должен выглядеть следующим образом (пример):
   Атрибут "class" содержит значение "btn btn-secondary dropdown-toggle"
    */
-  for(const attr of document.querySelector(".btn.dropdown-toggle").attributes) {
+  const attrs = document.querySelector(".btn.dropdown-toggle").attributes;
+  for(const attr of attrs) {
     console.log(`Атрибут "${attr.name}" содержит значение "${attr.value}"`);
   }
 
