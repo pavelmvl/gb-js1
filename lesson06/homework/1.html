@@ -78,11 +78,9 @@
   должен правильно работать код из 3-го задания.
    */
   const product4 = document.querySelector(".product").cloneNode(true);
-  product4.querySelector(".productName").textContent = "Продукт 4";
+  product4.querySelector(".productName").textContent = "Товар 4";
   product4.querySelector("img").src = "https://picsum.photos/id/1080/200/300";
-  const products = document.querySelectorAll(".product");
-  products[products.length - 1].remove();
-  document.body.append(product4);
+  document.querySelector(".product:last-of-type").replaceWith(product4);
 
 
   /*
