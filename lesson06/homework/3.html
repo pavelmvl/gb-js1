@@ -37,18 +37,44 @@
   1. При наведении на любую из звезд, данной звезде должен ставиться класс
   golden, также такой класс должен ставиться всем звездам до нее слева.
   */
+  const containerEl = document.querySelector(".stars_container");
+  const starEls = containerEl.querySelectorAll("i");
+  containerEl.addEventListener('mouseover', event => {
+    if (event.target.tagName !== 'I') {
+      return;
+    }
+    let isAdd = true;
+    for (const star of starEls) {
+      if (isAdd) {
+        star.classList.add("golden");
+      } else {
+        star.classList.remove("golden")
+      }
+      if (star === event.target) {
+        isAdd = false;
+      }
+    }
+  });
 
 
   /*
   2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
   задания должны быть удалены.
    */
+  containerEl.addEventListener('mouseleave', () => {
+    starEls.forEach(el => el.classList.remove("golden"));
+  });
 
 
   /*
   3. Когда мы переводим мышь от одной звезды к другой, у нас могут мигать
   звезды (временно могут становиться черными). Почему так? Напишите словами.
   Можем ли мы это исправить? Если да, то предложите решение.
+  */
+  /*
+  1) Использовать событие mouseleave(не всплывает и не срабатывает при выходе за
+  границы дочерних элементов) вместо mouseout.
+  2) Склеить границы элементов со звездами.
   */
 
 
