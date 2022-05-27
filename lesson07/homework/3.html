@@ -28,7 +28,7 @@
     if ( n < 1) {
       throw new Error("n should be positive");
     }
-    return [...String(n)].sort((a, b) => a - b).reverse().join("");
+    return [...String(n)].sort((a, b) => b - a).join("");
   }
 
   console.log(descendingOrder(42145)); // 54421
